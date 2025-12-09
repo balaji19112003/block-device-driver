@@ -1,5 +1,5 @@
 
-#  Dummy Yocto Block Device Driver Project
+#  Yocto Block Device Driver Project
 
 This project provides a **Yocto-like environment** for learning and demonstrating how a **block device driver** works, without requiring a full Yocto build.
 
@@ -11,7 +11,7 @@ It includes:
 * A **BitBake-style recipe** (`.bb`)
 * A **dummy BitBake script** to simulate Yocto builds
 
-This project is ideal for **learning, prototyping, and GitHub portfolio demonstrations**.
+This project is ideal for **prototyping, and GitHub portfolio demonstrations**.
 
 ---
 
@@ -39,7 +39,7 @@ dummy-yocto-block/
 
 ---
 
-#  How the Dummy Yocto Build Works
+#  How the yocto Build Works
 
 1. Run the fake BitBake script:
 
@@ -90,6 +90,11 @@ add_disk(dev.gd);                        // Add disk → /dev/myblock appears
 ---
 
 #  Block Device Working Flow
+
+The following diagram shows how the block device driver interacts with the system:
+
+![Block Device Driver Flow](https://media.geeksforgeeks.org/wp-content/uploads/20200603084935/driver-21.png)
+
 
 ### 1️ Initialization
 
