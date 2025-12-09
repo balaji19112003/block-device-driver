@@ -1,16 +1,5 @@
-Here’s a **fully structured, professional README.md** for your **Dummy Yocto Block Device Driver Project**.
-It includes:
 
-* Project overview
-* Folder structure
-* How the driver is registered
-* Block device working flow
-* User-space communication flow
-* Example usage
-
----
-
-# 📦 Dummy Yocto Block Device Driver Project
+#  Dummy Yocto Block Device Driver Project
 
 This project provides a **Yocto-like environment** for learning and demonstrating how a **block device driver** works, without requiring a full Yocto build.
 
@@ -26,7 +15,7 @@ This project is ideal for **learning, prototyping, and GitHub portfolio demonstr
 
 ---
 
-# 🗂️ Project Structure
+#  Project Structure
 
 ```
 dummy-yocto-block/
@@ -50,7 +39,7 @@ dummy-yocto-block/
 
 ---
 
-# ⚙️ How the Dummy Yocto Build Works
+#  How the Dummy Yocto Build Works
 
 1. Run the fake BitBake script:
 
@@ -73,9 +62,9 @@ build/block-sample/
 
 ---
 
-# 🧱 Block Device Driver — Registration & Probe
+#  Block Device Driver — Registration & Probe
 
-### 1️⃣ Registration in Linux
+### 1️ Registration in Linux
 
 The driver is registered in `myblock_init()`:
 
@@ -92,7 +81,7 @@ add_disk(dev.gd);                        // Add disk → /dev/myblock appears
 * `alloc_disk()` → allocates device structure
 * `add_disk()` → makes the device accessible in `/dev`
 
-### 2️⃣ Probe Function Concept
+### 2️ Probe Function Concept
 
 * Typical platform drivers use a **probe function** called by the kernel when a matching device is found.
 * In this RAM-backed driver, there is **no physical hardware**, so `module_init(myblock_init)` acts as the **probe**.
@@ -100,9 +89,9 @@ add_disk(dev.gd);                        // Add disk → /dev/myblock appears
 
 ---
 
-# 🔗 Block Device Working Flow
+#  Block Device Working Flow
 
-### 1️⃣ Initialization
+### 1️ Initialization
 
 ```
 module_init(myblock_init)
@@ -113,7 +102,7 @@ module_init(myblock_init)
         └── add_disk() → /dev/myblock appears
 ```
 
-### 2️⃣ User-Space Interaction
+### 2️ User-Space Interaction
 
 **Write Flow:**
 
@@ -139,7 +128,7 @@ Block Layer → Request Queue → myblock_request()
 Data copied from RAM buffer → User App
 ```
 
-### 3️⃣ Cleanup
+### 3️ Cleanup
 
 ```
 module_exit(myblock_exit)
@@ -151,7 +140,7 @@ module_exit(myblock_exit)
 
 ---
 
-# 🧪 Example Usage
+#  Example Usage
 
 ### 1. Build Driver and App
 
