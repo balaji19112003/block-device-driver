@@ -18,11 +18,11 @@ This project is ideal for **prototyping, and GitHub portfolio demonstrations**.
 #  Project Structure
 
 ```
-dummy-yocto-block/
+yocto-block/
 │── README.md
 │── Makefile
 │── scripts/
-│   └── bitbake.sh        # Dummy Yocto build script
+│   └── bitbake.sh        # Yocto build script
 │
 ├── meta-myblock/
 │   ├── conf/
@@ -41,7 +41,7 @@ dummy-yocto-block/
 
 #  How the yocto Build Works
 
-1. Run the fake BitBake script:
+1. Run the BitBake script:
 
 ```bash
 sh scripts/bitbake.sh block-sample
@@ -49,7 +49,7 @@ sh scripts/bitbake.sh block-sample
 
 2. The script:
 
-* Copies sources into a dummy `build/` folder
+* Copies sources into a  `build/` folder
 * Executes the **Makefile**
 * Builds the kernel module (`myblock.ko`)
 * Builds the user-space app (`user_app`)
@@ -69,8 +69,8 @@ build/block-sample/
 The driver is registered in `myblock_init()`:
 
 ```c
-dev.gd = alloc_disk(1);                  // Allocate gendisk
-dev.gd->major = register_blkdev(0,"myblock"); // Register major dynamically
+dev.gd = alloc_disk(1);  // Allocate gendisk
+dev.gd->major = register_blkdev(0,"myblock");  // Register major dynamically
 dev.gd->queue = dev.queue;               // Assign request queue
 strcpy(dev.gd->disk_name, "myblock");   // Set device name
 set_capacity(dev.gd, NUM_SECTORS);      // Set device size
@@ -94,6 +94,32 @@ add_disk(dev.gd);                        // Add disk → /dev/myblock appears
 The following diagram shows how the block device driver interacts with the system:
 
 ![Block Device Driver Flow](https://media.geeksforgeeks.org/wp-content/uploads/20200603084935/driver-21.png)
+
+
+#        Working Flow (Block Diagram )
+flowchart TD
+
+    A[User Space Application] 
+        --> B[VFS (Virtual File System)]
+    B --> C[Filesystem Layer (ext4, FAT, etc.)]
+    C --> D[Page Cache / Buffer Cache]
+
+    D --> E[Block Layer]
+    E --> F[BIO Creation (Read/Write Requests)]
+    F --> G[Multi-Queue I/O Scheduler (blk-mq)]
+
+    G --> H[Driver: request_fn() / queue_rq()]
+    H --> I[Backend Storage<br>(RAM Disk / SD / eMMC / File / Hardware)]
+
+    I --> J[Data Completed]
+    J --> K[Block Layer Completion]
+    K --> L[Page Cache Update]
+    L --> M[Filesystem Response]
+    M --> N[VFS Return]
+    N --> O[User Application Receives Data]
+
+
+
 
 
 ### 1️ Initialization
